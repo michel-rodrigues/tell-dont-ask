@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "tell-dont-ask"
+version = "0.1.0"
+description = ""
+authors = ["Michel Rodrigues <michel.rodrigues86@yahoo.com.br>"]
+
+[tool.poetry.dependencies]
+python = "3.11.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+ruff = "^0.0.285"
+pre-commit = "^3.3.3"
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    ".gitignore",
+    ".git",
+]
+
+[tool.black]
+line-length = 120

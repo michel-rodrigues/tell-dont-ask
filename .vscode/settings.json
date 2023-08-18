@@ -1,0 +1,16 @@
+{
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true
+        }
+    },
+    "python.defaultInterpreterPath": "/home/michel/.cache/pypoetry/virtualenvs/tell-dont-ask-bHHqSeo4-py3.11/bin/python",
+    "python.testing.pytestArgs": [
+        "-s",
+        "-vv",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
