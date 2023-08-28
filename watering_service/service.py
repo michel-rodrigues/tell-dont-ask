@@ -20,11 +20,15 @@ class Watering:
     def perform(self, command: WateringCommand) -> bool:
         raised_bed = self._raised_bed_repository.get_bed(command.bed_id)
         water_valve = self._water_valve_repository.get_water_valve()
-        successfully_watered = self._water_bed(raised_bed, water_valve)
-        if successfully_watered:
-            self._water_valve_repository.save(water_valve)
-            self._raised_bed_repository.save(raised_bed)
-        return successfully_watered
+
+        try:
+            self._water_bed(raised_bed, water_valve)
+        except InterruptedException:
+            return False
+
+        self._water_valve_repository.save(water_valve)
+        self._raised_bed_repository.save(raised_bed)
+        return True
 
     def _wating_water_to_flow(self):
         time.sleep(0.1)
@@ -46,9 +50,5 @@ class Watering:
                     plant.soil_moisture_percentage = plant.soil_moisture_percentage + 20
                     plant.watering_count = plant.watering_count + 1
                     self._wating_water_to_flow()
-                except InterruptedException:
-                    return False
                 finally:
                     water_valve.open = False
-
-        return True
