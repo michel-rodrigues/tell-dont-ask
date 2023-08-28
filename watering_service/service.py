@@ -7,10 +7,6 @@ from watering_service.repositories import RaisedBedRepository, WaterValveReposit
 WateringCommand = collections.namedtuple("WateringCommand", "bed_id")
 
 
-class InterruptedException(Exception):
-    ...
-
-
 class Watering:
     def __init__(self, raised_bed_repository: RaisedBedRepository, water_valve_repository: WaterValveRepository):
         self._raised_bed_repository = raised_bed_repository
