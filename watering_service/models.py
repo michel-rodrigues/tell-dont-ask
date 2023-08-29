@@ -2,6 +2,11 @@ from enum import StrEnum
 from typing import Sequence
 
 
+class WaterValve:
+    def __init__(self, open: bool):
+        self.open = open
+
+
 class PlantType(StrEnum):
     VEGETABLE = "vegetable"
     FLOWER = "flower"
@@ -18,8 +23,3 @@ class Plant:
 class RaisedBed:
     def __init__(self, plants: Sequence[Plant]):
         self.plants = plants
-
-
-class WaterValve:
-    def __init__(self, open: bool):
-        self.open = open
