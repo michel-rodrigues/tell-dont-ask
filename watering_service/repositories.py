@@ -1,12 +1,12 @@
-from watering_service.models import Plant, PlantType, RaisedBed, WaterValve
+from watering_service.models import Flower, RaisedBed, Tree, Vegetable, WaterValve
 
 
 class RaisedBedRepository:
     def __init__(self) -> None:
         plants = (
-            Plant(type=PlantType.VEGETABLE, soil_moisture_percentage=59, watering_count=int),
-            Plant(type=PlantType.FLOWER, soil_moisture_percentage=49, watering_count=int),
-            Plant(type=PlantType.TREE, soil_moisture_percentage=44, watering_count=int),
+            Vegetable(soil_moisture_percentage=59, watering_count=int),
+            Flower(soil_moisture_percentage=49, watering_count=int),
+            Tree(soil_moisture_percentage=44, watering_count=int),
         )
         self._raised_bed = RaisedBed(plants)
 
